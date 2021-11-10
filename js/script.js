@@ -135,13 +135,6 @@ class App {
     e.preventDefault();
 
     // Get data from the form
-    // const form = document.querySelector('.form');
-    // const containerWorkouts = document.querySelector('.workouts');
-    // const inputType = document.querySelector('.form__input--type');
-    // const inputDistance = document.querySelector('.form__input--distance');
-    // const inputDuration = document.querySelector('.form__input--duration');
-    // const inputCadence = document.querySelector('.form__input--cadence');
-    // const inputElevation = document.querySelector('.form__input--elevation');
 
     const type = inputType.value;
     const distance = Number(inputDistance.value);
@@ -273,6 +266,8 @@ class App {
     const workoutEl = e.target.closest('.workout');
 
     if (e.target.classList.contains('workout__removeAll')) {
+      const userConfirms = confirm('Are you sure?');
+      if (!userConfirms) return;
       app.reset();
     }
     if (!workoutEl) return;
